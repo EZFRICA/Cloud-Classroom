@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GDG Cloud Abidjan</title>
+    <style>
+        /* Set height to 100% for body and html to enable the background image to cover the whole page: */
+        body, html {
+        height: 100%
+        }
+
+        .bgimg {
+
+        width: 100%;
+        height: 100%;
+        background: rgba(0,0,0,0.5);
+        position: absolute;
+        top: 0;
+        left: 0;
+
+        /* Add a white text color to all elements inside the .bgimg container */
+        color: white;
+        /* Add a font */
+        font-family: "Courier New", Courier, monospace;
+        /* Set the font-size to 25 pixels */
+        font-size: 33px;
+        }
+        html { 
+        background: url(./event.png) no-repeat center center fixed; 
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+        }
+
+
+        /* Position text in the middle */
+        .middle {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        }
+        .times{
+            font-size:60px;
+        }
+        /* Style the <hr> element */
+        hr {
+        margin: auto;
+        width: 40%;
+        font-weight: 800;
+        }
+
+        @media (max-width:480px)  { /* smartphones, Android phones, landscape iPhone */ 
+        h1 {
+        font-size: 25px;
+        }
+        .times{
+            font-size:25px;
+        }
+        }
+        @media (max-width:950px)  { /* tablet, landscape iPad, lo-res laptops ands desktops */ 
+        h1 {
+        font-size: 30px;
+        }
+        .times{
+            font-size:30px;
+        }
+        }
+    </style>
+</head>
+<body>
+    <div class="bgimg">
+        <div class="middle">
+          <h1>Cloud Classroom - Firebase Hosting</h1>
+          
+          <hr>
+          <p id="demo" class="times"></p>
+        </div>
+    </div>
+    
+    <script>
+        // Cloud Storage, Firebase Hosting, Cloud Run & App Engine
+        // Set the date we're counting down to
+        var countDownDate = new Date("Sept 18, 2021 00:00:00").getTime();
+
+        // Update the count down every 1 second
+        var x = setInterval(function() {
+
+        // Get todays date and time
+        var now = new Date().getTime();
+
+        // Find the distance between now an the count down date
+        var distance = countDownDate - now;
+
+        // Time calculations for days, hours, minutes and seconds
+        var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        // Display the result in an element with id="demo"
+        document.getElementById("demo").innerHTML = days + "J " + hours + "h "
+        + minutes + "m " + seconds + "s ";
+
+        // If the count down is finished, write some text
+        if (distance < 0) {
+            clearInterval(x);
+            document.getElementById("demo").innerHTML = "EXPIRED";
+        }
+        }, 1000);
+    </script>
+</body>
+</html>
